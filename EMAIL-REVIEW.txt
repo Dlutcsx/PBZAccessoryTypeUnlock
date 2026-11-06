@@ -1,0 +1,35 @@
+To: support@nexusmods.com
+Subject: Manual review request - PBZAccessoryTypeUnlock UE4SS 1.0.1
+
+Hello Nexus Mods team,
+
+My upload, PBZAccessoryTypeUnlock UE4SS 1.0.1, has been quarantined.
+I would like to request a manual review.
+
+Mod page: [INSERT NEXUS MOD PAGE URL]
+Quarantined file: [INSERT FILE URL OR FILE ID]
+Public source repository: [INSERT PUBLIC SOURCE URL]
+Source version/tag/commit: [INSERT IMMUTABLE TAG OR COMMIT URL]
+Build instructions: [INSERT BUILD.md URL AT THAT COMMIT]
+Technical behavior: [INSERT SECURITY-REVIEW.md URL AT THAT COMMIT]
+
+The mod includes a native Windows x64 DLL loaded by a UE4SS Lua script.
+It changes the same-category accessory threshold from 3 to 6 in two verified
+script compiler-input buffers. It installs an in-process native function detour;
+the fallback hook briefly suspends other threads of the current game process
+while installing the detour. It does not write to PBZ.exe, Pak files or saves,
+and it does not change script checksum records. It appends a log in its own folder.
+
+The public source includes the exact C/Lua source and build script from this
+release, along with MinHook v1.3.4 sources and license. Build requirements and
+non-deterministic PE-byte limitations are documented. There are no nested
+archives or packer/obfuscation steps.
+
+Uploaded archive: PBZAccessoryTypeUnlock_UE4SS_1.0.1.zip
+Archive SHA256: 590be57a1016e1b51856832aeca934f0dcec00b8a821fe62a72f03ce3fae8c31
+Native DLL SHA256: d64471480609ecd2e934b1530a4224856d1917b71d66de1e31da1bc44f5923f6
+
+Please review the file and let me know if any additional information is required,
+including details about any specific scanner finding that I should investigate.
+
+Thank you.
